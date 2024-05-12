@@ -1,0 +1,38 @@
+﻿@using EntityLayer.Concrete
+@model List<Blog>
+
+
+
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<div class="tech-btm">
+	<h4>Yazarın Diğer Blog Yazıları</h4>
+
+	@foreach(var item in Model)
+	{
+		
+	
+	<div class="blog-grids row mb-3">
+		<div class="col-md-5 blog-grid-left">
+			<a href="single.html">
+				<img src="~/CoreBlogTema/images/1.jpg" class="img-fluid" alt="">
+			</a>
+		</div>
+		<div class="col-md-7 blog-grid-right">
+
+			<h5>
+					<a href="single.html"><strong>@item.BlogTitle</strong><br />
+						@item.BlogContent.Substring(0, item.BlogContent.Substring(0, 40).LastIndexOf(""))... </a>
+			</h5>
+			<div class="sub-meta">
+				<span>
+						<i class="far fa-clock"></i>  @(((DateTime)item.BlogCreateDate).ToString("dd-MMM-yyyy"))
+
+				</span>
+			</div>
+		</div>
+
+	</div>
+	}
+</div>

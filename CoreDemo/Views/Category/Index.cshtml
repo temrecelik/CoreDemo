@@ -1,0 +1,40 @@
+﻿<!--Category controllerının view dosyası css-html-javascript-->
+
+@using EntityLayer.Concrete
+@model List<Category>
+
+@{
+    Layout = null;
+}
+
+<!--MVC projesinde wwwroot kalsöründe bootsrapin dahil edildiği yer-->
+<a href="~/lib/bootstrap/dist/css/bootstrap.css.map"></a>
+<a href="~/lib/bootstrap/dist/css/bootstrap.min.css.map"></a>
+<a href="~/lib/bootstrap/dist/css/bootstrap.rtl.css.map"></a>
+<a href="~/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map"></a>
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/lib/bootstrap/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+<link href="~/lib/bootstrap/dist/css/bootstrap.rtl.css" rel="stylesheet" />
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+<table class="table table-bordered">
+    <tr>
+		<th>ID</th>
+        <th>Category Name</th>
+        <th>Status</th>
+        <th>Details</th>
+        <th>Delete</th>
+        
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>@item.CategoryId</td>
+            <td>@item.CategoryName</td>
+            <td>@item.CategoryStatus</td>
+            <td><a href ="#" class="btn btn-warning"> Detaylar</a></td>
+            <td><a href="#" class="btn btn-danger"> sil</a></td>
+          
+        </tr>
+    }
+</table>

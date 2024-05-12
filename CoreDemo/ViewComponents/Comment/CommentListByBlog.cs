@@ -1,0 +1,18 @@
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete.EntityFramework;
+using Microsoft.AspNetCore.Mvc;
+//BlogReadAll blog controllerına ait viewden kullanılan viewcomponent classıdır.
+namespace CoreDemo.ViewComponents.Comment
+{
+    public class CommentListByBlog : ViewComponent
+    {
+        CommentManager cm = new CommentManager(new EfCommentRepository());
+       
+        public IViewComponentResult Invoke(int id)
+        {
+          
+            var values = cm.GetList(id);
+            return View(values);
+        }
+    }
+}
