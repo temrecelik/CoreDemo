@@ -27,7 +27,7 @@
 						
 					
 					<div class="col-lg-4 card">
-						<a href="single.html">
+							<a href="/Blog/BlogReadAll/@item.BlogID">
 							<img src="@item.BlogImage" class="card-img-top img-fluid" alt="">
 						</a>
 						<div class="card-body">
@@ -55,8 +55,10 @@
 							</h5>						<!--yazılan blogContentin ilk 130 karekterini gösterir-->
 														<!--geri kalan kısımı alttaki devamnı oku buttonuna kodlanacak-->
 														<!--Ayrıca 130 karakterin içine dahil olduğu son kelimenin tamamıyla biter-->
-							<p class="card-text mb-3">@item.BlogContent.Substring(0,item.BlogContent.Substring(0,130).LastIndexOf(""))... </p>
-							
+						<a href="/Blog/BlogReadAll/@item.BlogID">
+						    <p class="card-text mb-3">@item.BlogContent.Substring(0,item.BlogContent.Substring(0,130).LastIndexOf(""))... </p>
+						</a>
+
 							<a href="/Blog/BlogReadAll/@item.BlogID" class="btn btn-primary read-m">Devamını Oku</a>
 							<!--Her blog için devamını açılacak bi şekilde bu linki gödmük
 								blog controllerden bir adet BlogDetails View oluşturduk
