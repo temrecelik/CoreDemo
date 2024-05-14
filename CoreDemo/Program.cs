@@ -16,6 +16,9 @@ if (!app.Environment.IsDevelopment())
 	app.UseHsts();
 }
 
+//Olmayan Bir sayfanýn urlsi girilirse seni atacaðý sayfa bu sayfadýr.
+app.UseStatusCodePagesWithReExecute("/ErrorPage/Error1", "?code={0}");
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
