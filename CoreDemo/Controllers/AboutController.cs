@@ -15,6 +15,9 @@ namespace CoreDemo.Controllers
 			return View(values);
 		}
 
+
+
+
 		//Hakkmızda sayfasının sosyal medya bölümlerini tutan partial view
 		public PartialViewResult SocialMediaAbout()
 		{
