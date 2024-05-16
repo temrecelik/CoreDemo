@@ -23,7 +23,6 @@ namespace CoreDemo.Controllers
 	{
 		/*1-)Otantike olmadığımız sürece /Writer/Index/ sayfasına giremeyiz 
 		[Authorize] tek bir action fonksiyonuna yazarsak sodece o actionun viewi için authorization gereklidir.*/
-		[AllowAnonymous]
 		public IActionResult Index()
 		{
 			return View();
