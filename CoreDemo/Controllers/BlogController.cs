@@ -1,11 +1,14 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.Concrete.EntityFramework;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CoreDemo.Controllers
-{
+{   [AllowAnonymous] //kullanıcı otantike olmadan blog sayfasını görebilir.
+
     public class BlogController : Controller
     {
+      
         //Blog manager'deki kodları kullanabiliriz.
         BlogManager bm = new BlogManager(new EfBlogRepository());
 

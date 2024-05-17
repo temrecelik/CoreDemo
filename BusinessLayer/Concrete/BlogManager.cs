@@ -60,9 +60,14 @@ namespace BusinessLayer.Concrete
 			return _blogDal.GetListAll();
 		}
 
+        
+		public List<Blog> GetListlast3Blog()
+        {
+			  return _blogDal.GetListAll().TakeLast(3).ToList();
+        }
 
-		//blogları yazarın idsine göre listelebileceğiz
-		public List<Blog> GetBlocklistByWriter(int id)
+        //blogları yazarın idsine göre listelebileceğiz
+        public List<Blog> GetBlocklistByWriter(int id)
 		{
 			return _blogDal.GetListAll(x=>x.WriterID == id);
 		}

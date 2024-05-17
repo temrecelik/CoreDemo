@@ -17,9 +17,11 @@ Bir yazarın websitesinde olacak nitelikleri
 
 
 namespace CoreDemo.Controllers
-{ 
-	//[Authorize] 2-)buraya yazarsak controllerdeki tüm Actionlara girmek için Authorize gerçekleştirmesi lazım
-	public class WriterController : Controller
+{
+    /*[Authorize] 2-)buraya yazarsak controllerdeki tüm Actionlara girmek için Authorize gerçekleştirmesi lazım
+	ancak her sayfaya teker teker [Authorize] yazmak yerine program.cs dosyasındaki yazdığımız kod bloğu
+	 [AllowAnonymous] olan sayfalar hariç her sayfayı [Authorize] yapar. */
+    public class WriterController : Controller
 	{
 		/*1-)Otantike olmadığımız sürece /Writer/Index/ sayfasına giremeyiz 
 		[Authorize] tek bir action fonksiyonuna yazarsak sodece o actionun viewi için authorization gereklidir.*/

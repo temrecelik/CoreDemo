@@ -6,10 +6,15 @@ using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
 namespace CoreDemo.Controllers
-{
-	public class LoginController : Controller
+{   /*
+ 	 Kullanıcının giriş yapmadan görebileceği contact about blog gibi sayfalar [AllowAnonymous] ile açılmalıdır.
+	 ama mesaj gönder gibi seçenekler için otontaki olmak gerekliir.
+ 	 */
+
+    public class LoginController : Controller
 	{
 		[AllowAnonymous] //Login/Index sayfasına bu kod ile outharization yapmadan girebiliriz
+
 		public IActionResult Index()
 		{
 			return View();

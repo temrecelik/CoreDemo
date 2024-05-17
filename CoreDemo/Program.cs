@@ -13,6 +13,7 @@ builder.Services.AddControllersWithViews();
 eðer sayfalarýn controllerindeki action fonksiyonunun baþýan [AllowAnonymous] yazarsak bu sayfalar bu kuraldan
 muaf olur yani autharization gerçekleþmeden girebiliriz.
  */
+
 builder.Services.AddMvc(config =>
 {
 	var policy = new AuthorizationPolicyBuilder()
@@ -54,7 +55,7 @@ app.UseStatusCodePagesWithReExecute("/ErrorPage/Error1", "?code={0}");
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-app.UseAuthentication();//otantike olmak için ekledik
+app.UseAuthentication();//otantike olmak için ekledik BU Autherization ile ilgili yazýlmasý lazým
 
 
 app.UseRouting();
