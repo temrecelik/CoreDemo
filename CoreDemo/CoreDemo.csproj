@@ -28,7 +28,7 @@
     <ProjectReference Include="..\EntityLayer\EntityLayer.csproj" />
   </ItemGroup>
    <ItemGroup>
-     <Folder Include="ViewComponents\BlogLast3Blog\" />
+     <Folder Include="Views\Shared\Components\GetList\" />
    </ItemGroup>
 
 </Project>

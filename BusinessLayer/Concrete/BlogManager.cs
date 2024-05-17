@@ -61,7 +61,7 @@ namespace BusinessLayer.Concrete
 		}
 
         
-		public List<Blog> GetListlast3Blog()
+		public List<Blog> GetLast3Blog()
         {
 			  return _blogDal.GetListAll().TakeLast(3).ToList();
         }
