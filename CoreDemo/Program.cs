@@ -1,3 +1,4 @@
+using BusinessLayer.Concrete;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
@@ -27,6 +28,10 @@ builder.Services.AddMvc(config =>
   bu kod bloðunu yazdýk yani buton authorization olmadan basýldýðýnda bizi o sayfa yerine login/ýndex sayfasýna 
   atacaktýr giriþ yapýldýktan sonra o sayfalara eriþim yapýlabileceðizdir.
 */
+ //iki kodu ben yazdým footer da son 3 postu listele
+
+
+
 builder.Services.AddMvc();
 builder.Services.AddAuthentication(
 	CookieAuthenticationDefaults.AuthenticationScheme)

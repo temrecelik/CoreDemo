@@ -4,13 +4,15 @@
 
 <div class="tech-btm">
 	<h3>Son Gönderiler<h3>
-				@foreach (var item in Model)
+				
+			@foreach (var item in Model)
 				{
-
+					//href linklerini böyle vermezsek 1 kere tıkladıktan sonra ikinci tıklama için Login page'e
+					//atıyor onda @url.Action kullanmamız lazım.
 				<div class="blog-grids row mb-3">
 				<div class="col-md-5 blog-grid-left">
-					<a href="single.html">
-						<img src="~/CoreBlogTema/images/4.jpg" class="card-img-top img-fluid" alt="">
+						<a href="@Url.Action("BlogReadAll", "Blog", new { id = item.BlogID })">
+						<img src="@item.BlogImage" class="card-img-top img-fluid" alt="">
 					</a>
 				</div>
 
@@ -18,11 +20,11 @@
 				<div class="col-md-7 blog-grid-right">
 
 					<h5>
-						<a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
+							<a href="@Url.Action("BlogReadAll", "Blog", new { id = item.BlogID })">@item.BlogContent.Substring(0, item.BlogContent.Substring(0, 30).LastIndexOf(""))...</a>
 					</h5>
 					<div class="sub-meta">
 						<span>
-							<i class="far fa-clock"></i> 20 Jan, 2018
+							<i class="far fa-clock"></i> @DateTime.Now.ToShortDateString();
 						</span>
 					</div>
 				</div>

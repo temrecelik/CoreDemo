@@ -19,12 +19,12 @@ namespace CoreDemo.Controllers
             var values = bm.GetBlogListWithCategory();
             return View(values);
         }
-        //bir tablo için birden fazla view yani sayfa oluşturabiliriz.
-        //blog controline yazdığımız her IActionResult fonksiyonu ile
-        //birer view oluştururuz.
+		//bir tablo için birden fazla view yani sayfa oluşturabiliriz.
+		//blog controline yazdığımız her IActionResult fonksiyonu ile
+		//birer view oluştururuz.
 
 
-        /*AŞAĞIDAKİ FONKSİYONUNUN NE İŞE YARADIĞI
+		/*AŞAĞIDAKİ FONKSİYONUNUN NE İŞE YARADIĞI
          *Şuanda blog controller'ı içerisindeyiz yani biz aşağıdaki gibi
          * BlogReadAll fonksiyonunu yazdığımızda oluşacak viewin linki
            domainname/blog/BlogReadAll/id 
@@ -35,7 +35,8 @@ namespace CoreDemo.Controllers
           o olan nesnenin özelliklerine erişim yapabiliriz. Bu da viewde foreach döngüleri
           ile idye göre dinamik işler yapmamızı sağlar
          */
-        public IActionResult BlogReadAll(int id) {
+		
+		public IActionResult BlogReadAll(int id) {
             
             ViewBag.i = id; //bu kod satırı ile linkteki id değerini tutarız
             var values = bm.GetBlogByID(id);
