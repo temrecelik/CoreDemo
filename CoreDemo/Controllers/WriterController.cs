@@ -49,5 +49,11 @@ namespace CoreDemo.Controllers
 		{
 			return PartialView();
 		}
+
+		[AllowAnonymous]
+		public PartialViewResult WriterFooterPartial()
+		{
+			return PartialView();	
+		}
 	}
 }
