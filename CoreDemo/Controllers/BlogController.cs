@@ -25,9 +25,10 @@ namespace CoreDemo.Controllers
 
 
 		/*AŞAĞIDAKİ FONKSİYONUNUN NE İŞE YARADIĞI
-         *Şuanda blog controller'ı içerisindeyiz yani biz aşağıdaki gibi
-         * BlogReadAll fonksiyonunu yazdığımızda oluşacak viewin linki
-           domainname/blog/BlogReadAll/id 
+         
+		 *Şuanda blog controller'ı içerisindeyiz yani biz aşağıdaki gibi
+          BlogReadAll fonksiyonunu yazdığımızda oluşacak viewin linki
+          domainname/blog/BlogReadAll/id 
           yani parametredeki id değeri linkin sonuna yazılır.Açılan sayfa öyle gelir.Bizde
           eğer html kısmında sona sayıyı denk getirirsek bu sayı id olarak alınır
           ve bu fonksiyon bize bm'deki yani blogrepositorydeki GetBlogByID fonksiyonuna
