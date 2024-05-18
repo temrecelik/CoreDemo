@@ -22,11 +22,7 @@ using System.Threading.Tasks;
 absract'daki ınterfacelerden miras alarak oluşturulur.Bu işlemler yapılırken generic bir yapı 
 oluşturulmalıdır.Bu işlemler if koşullarıyla business katmanında kontrol edilir daha sonra
 istenilen kurallara uygun bir şekilde iş kodları yazılır.
-
-
  */
-
-
 namespace BusinessLayer.Concrete
 {
 	public class CategoryManager : ICategoryService
@@ -34,32 +30,13 @@ namespace BusinessLayer.Concrete
 		ICategoryDal _categoryDal;
 
         
-
 		public CategoryManager(ICategoryDal categoryDal)
 		{
 			_categoryDal = categoryDal;
 		}
 
-		public void CategoryAdd(Category category)
-		{
-			_categoryDal.Insert(category);
-
-		}	
 		
-
-		public void CategoryDelete(Category category)
-		{
-
-			_categoryDal.Delete(category);	
-		}
-
-	
-
-		public void CategoryUpdate(Category category)
-		{
-			_categoryDal.Update(category);
-		}
-
+		
 		public Category GetByID(int id)
 		{
 			return _categoryDal.GetByID(id);
@@ -68,6 +45,21 @@ namespace BusinessLayer.Concrete
 		public List<Category> GetList()
 		{
 			return _categoryDal.GetListAll();
-		}
-	}
+		}    
+
+        public void TAdd(Category t)
+        {
+            _categoryDal.Insert(t);
+        }
+
+        public void TDelete(Category t)
+        {
+            _categoryDal.Delete(t);
+        }
+
+        public void TUpdate(Category t)
+        {
+            _categoryDal.Update(t);
+        }
+    }
 }
