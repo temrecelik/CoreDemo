@@ -28,6 +28,7 @@
     <ProjectReference Include="..\EntityLayer\EntityLayer.csproj" />
   </ItemGroup>
    <ItemGroup>
+     <Folder Include="ViewComponents\A\" />
      <Folder Include="Views\Shared\Components\GetList\" />
    </ItemGroup>
    <ItemGroup>
