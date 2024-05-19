@@ -1,0 +1,48 @@
+﻿@model EntityLayer.Concrete.Blog
+    
+@{
+    ViewData["Title"] = "BlogAdd";
+    Layout = "~/Views/Shared/WriterLayout.cshtml";
+}
+<h3 style="color:green">Blog ekleyin</h3><br />
+
+@using(Html.BeginForm("BlogAdd","Blog",FormMethod.Post))
+{
+    @Html.Label("Blog Baslıgı","Blog Başlığı", new { @style = "color: orange;"})
+    @Html.TextBoxFor(x => x.BlogTitle, new {@class ="form-control"})
+    @Html.ValidationMessageFor(x => x.BlogTitle)
+
+    <br />
+    <br />
+
+    @Html.Label("Resim ekle", "Resim Ekle", new { @style = "color: orange;" })
+    @Html.TextBoxFor(x => x.BlogImage, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.BlogImage)
+
+    <br />
+    <br />
+
+    @Html.Label("İkon Resim ekle", "Blog İkonu", new { @style = "color: orange;" })
+    @Html.TextBoxFor(x => x.BlogThumbnailImage, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.BlogThumbnailImage)
+
+
+    <br />
+    <br />
+
+    @Html.Label("Kategori", "Kategori", new { @style = "color: orange;" })
+    @Html.TextBoxFor(x => x.CategoryID, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CategoryID)
+    
+    <br />
+    <br />
+
+    @Html.Label("Blogunuz", "Blog Yazınız", new { @style = "color: orange;" })
+    @Html.TextAreaFor(x => x.BlogContent,20,10, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.BlogContent)
+
+    <br />
+    <button class="btn btn-outline-success">Oluştur</button>
+}
+
+

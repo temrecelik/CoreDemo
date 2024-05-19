@@ -1,5 +1,8 @@
 ﻿using BusinessLayer.Concrete;
+using BusinessLayer.ValidationRules;
 using DataAccessLayer.Concrete.EntityFramework;
+using EntityLayer.Concrete;
+using FluentValidation.Results;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -50,6 +53,41 @@ namespace CoreDemo.Controllers
             return View(values);
         }
 
-  
+        [HttpGet]
+        public IActionResult BlogAdd()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult BlogAdd(Blog p)
+        {
+            BlogValidator  bv = new BlogValidator();      //bu iki kod BlogValidatore göre girilen değerleri kontrol eder
+            ValidationResult results = bv.Validate(p);   //using FluentValidation.Result; ı seçerek import et yoksa çalışmıyor
+
+
+            if (results.IsValid)
+            {
+                p.BlogStatus = true;
+                p.BlogCreateDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+                p.WriterID = 1;
+                bm.TAdd(p);
+                return RedirectToAction("BlogListByWriter", "Blog");
+            }
+            else
+            {
+                foreach (var item in results.Errors) //BlogValidator'e göre fırlatılan hatalar
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+            
+                return View();
+        }
+
+
+
+
     }
 }
