@@ -7,13 +7,11 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Abstract
 {
-	public interface IBlogService
+	public interface IBlogService :IGenericService<Blog>
 	{
-		void BlogAdd(Blog blog);
-		void BlogDelete(Blog blog);
-		void BlogUpdate(Blog blog);
-		List<Blog> GetList();
-		Blog GetByID(int id);
+	
+		//buradali fonksiyonlar IGenericService dışında IBlogService için özel yazdığımız fonkisyonlar Eğer bir entity için 
+		//delete-ınsert-update-list dışında daha özel iş fonksiyonları yazmak istersek kendi kendi özel ınterfacesine yazarız.
 
 		//part 3
 		//birbiriyle bağlantısı mig'i olan tabloların özellikleri bir
@@ -29,6 +27,7 @@ namespace BusinessLayer.Abstract
 		List<Blog> GetBlocklistByWriter(int id);
 
 
+	
 
-	}
+    }
 }
