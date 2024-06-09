@@ -72,5 +72,11 @@ namespace BusinessLayer.Concrete
         {
             throw new NotImplementedException();
         }
+
+
+		public List<Blog> GetListWithCategoryByWriterBm(int id) //bir blogun writer id'si var ve category id'si var biz category idsine göre aslında category name'i getirdik
+		{
+			return _blogDal.GetListWithCategoryByWriter(id);
+		}
     }
 }

@@ -30,5 +30,7 @@ namespace DataAccessLayer.Abstract
 		//için part ili concrete entiyframwork EfBlogRepository'de
 		List<Blog> GetListWithCategory();
 
+		List<Blog> GetListWithCategoryByWriter(int id);
+
 	}
 }

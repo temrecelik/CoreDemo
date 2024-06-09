@@ -5,6 +5,7 @@ using EntityLayer.Concrete;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CoreDemo.Controllers
 {   [AllowAnonymous] //kullanıcı otantike olmadan blog sayfasını görebilir.
@@ -49,14 +50,29 @@ namespace CoreDemo.Controllers
 
         public IActionResult BlogListByWriter()
         {
-            var values = bm.GetBlocklistByWriter(1);
+            var values = bm.GetListWithCategoryByWriterBm(1);
             return View(values);
         }
 
         [HttpGet]
-        public IActionResult BlogAdd()
-        {
+        public IActionResult BlogAdd()//Burada kategorileri ismine göre getirdik ancak id'sine işlem yapıyoz tabloada id var
 
+        {
+            CategoryManager cm  = new CategoryManager(new EfCategoryRepository());
+            //ctrl+. rendering ile kullan   
+            List<SelectListItem> categoryvalues = (from x in cm.GetList()  //categoryleri blog yazarken blogun categorisini belirlemek için çekiiyoruz
+                                                  select new SelectListItem
+                                                  {
+                                                      Text = x.CategoryName, //dropdowndaki gösterelicek categorylerin labeli
+                                                      Value = x.CategoryId.ToString() //buda kod kısmandan işlem yacağaımız ana değeri id üzerinden
+
+
+                                                  }
+
+                                                  ).ToList();
+            
+            ViewBag.cv =categoryvalues;//categoriyleri blogadd in HttpGet ile sayfa çalışır çalışmaz çekebiliriz.Ve blog yazarken
+                                        //Blogların kategorisini seçmek için burayı kullanabiliriz.
             return View();
         }
 

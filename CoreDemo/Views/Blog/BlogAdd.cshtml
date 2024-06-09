@@ -31,8 +31,8 @@
     <br />
 
     @Html.Label("Kategori", "Kategori", new { @style = "color: orange;" })
-    @Html.TextBoxFor(x => x.CategoryID, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.CategoryID)
+    @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.cv, new { @class = "form-control" })
+    ;
     
     <br />
     <br />

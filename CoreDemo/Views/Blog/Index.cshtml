@@ -40,7 +40,7 @@
 								</li>
 								<li class="mx-2">
 									<a href="#">
-										<i class="far fa-comment"></i> 0
+										<i class="far fa-comment"></i> 
 									</a>
 								</li>
 								<li>
@@ -56,7 +56,7 @@
 														<!--geri kalan kısımı alttaki devamnı oku buttonuna kodlanacak-->
 														<!--Ayrıca 130 karakterin içine dahil olduğu son kelimenin tamamıyla biter-->
 						<a href="/Blog/BlogReadAll/@item.BlogID">
-						    <p class="card-text mb-3">@item.BlogContent.Substring(0,item.BlogContent.Substring(0,130).LastIndexOf(""))... </p>
+						    <p class="card-text mb-3">@item.BlogContent.Substring(0,item.BlogContent.Substring(0,50).LastIndexOf(""))... </p>
 						</a>
 
 							<a href="/Blog/BlogReadAll/@item.BlogID" class="btn btn-primary read-m">Devamını Oku</a>
