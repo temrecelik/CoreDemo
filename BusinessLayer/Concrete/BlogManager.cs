@@ -28,6 +28,7 @@ namespace BusinessLayer.Concrete
 			return _blogDal.GetListWithCategory();
 		}
 
+		//Bu idye blog türünde bir veri gönderir.Yani liste göndermez.Silme ve Güncelleme işlemlerinde bu çalışır
 		public Blog TGetById(int id)
 		{
 			return _blogDal.GetByID(id);

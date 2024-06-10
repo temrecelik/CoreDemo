@@ -107,13 +107,34 @@ namespace CoreDemo.Controllers
 
         //TGetById Blogların idisini tutar gelen idye göre blog tablosundaki değeri blogvalue değerine atar ve Tdelete ile sileriz
         //BlogListByWriter controllerin viewindaki sil butonuna bu DeleteBlog controllerindaki isteği yazarız ve silme işlemini 
-        //gerçekleştiririz.
+        //
+
+
         public IActionResult DeleteBlog(int id) { 
 
             var  blogvalue = bm.TGetById(id);
             bm.TDelete(blogvalue);
             return RedirectToAction("BlogListByWriter");
         }
+
+
+        /*
+         * Bu editControllaından oluşturduğumuz view  BlogListByWriter viewinsaki düzenli butonuna tıklandığında çalışır 
+         * yani blogu düzenleriz sonra düzenleme işlemi bitince BlogListByWriter viewina bizi geri aktarır.
+         */
+        [HttpGet]
+        public IActionResult EditBlog(int id) {
+
+            var blogvalue = bm.TGetById(id);
+            return View(blogvalue);
+        }
+
+        [HttpPost]
+        public IActionResult EditBlog(Blog p)
+        {
+            return RedirectToAction("BlogListByWriter");
+        }
+
 
     }
 }

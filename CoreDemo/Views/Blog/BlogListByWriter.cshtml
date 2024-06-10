@@ -63,8 +63,10 @@
                     ;
                 }
             </td>
-            <td> <a href="/Blog/DeleteBlog/@item.BlogID" class="btn btn-outline-danger">Sil</a>  </td>
-            <td> <a href="#" class="btn btn-outline-warning">Düzenle</a>  </td>
+		@* 	<td> <a href="/Blog/DeleteBlog/@item.BlogID" class="btn btn-outline-danger"></a> Sil </td> *@
+            <td><button onclick="confirmDelete(@item.BlogID)" class="btn btn-outline-danger"> Sil</button></td>
+            <td> <a href="/Blog/EditBlog/@item.BlogID" class="btn btn-outline-warning">Düzenle</a>  </td>
+            @*düzenle butonuna tıklayınca bizi EditBlog viewına atar oradaki işlem bitince bizi bu viewa geri *@
 
     </tr>
  
@@ -72,3 +74,15 @@
 </table>
 <br />
 <a href="#" class="btn btn-secondary">Yeni Blog Oluştur</a>
+
+@*Burası popup silmek işleminde önce ekrandan çıkar ve silmek istediğinden emin misiniz sorgusu yapar 
+    eğer eminsek blogcontrollerdaki deleteBlog fonksiyonu çalışır ve blogIDye göre blog silinir.
+*@
+<script>
+    function confirmDelete(blogID) {
+        var result = confirm("Bu Bloğu Silmek İstediğinize Emin misiniz ?");
+        if (result) {
+            window.location.href = '/Blog/DeleteBlog/' + blogID;
+        }
+    }
+</script>
