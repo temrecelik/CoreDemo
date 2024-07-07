@@ -34,7 +34,7 @@
     <br />
 
     @Html.Label("Blog Kategorisi", "Blog Kategorisi", new { @style = "color: orange;" })
-    @Html.TextAreaFor(x => x.CategoryID, new { @class = "form-control" })
+    @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.cv, new { @class = "form-control" })
 
 
     <br />

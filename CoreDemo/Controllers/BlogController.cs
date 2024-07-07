@@ -15,6 +15,7 @@ namespace CoreDemo.Controllers
       
         //Blog manager'deki kodları kullanabiliriz.
         BlogManager bm = new BlogManager(new EfBlogRepository());
+        CategoryManager cm = new CategoryManager(new EfCategoryRepository());
 
         public IActionResult Index()
         {
@@ -60,7 +61,7 @@ namespace CoreDemo.Controllers
         public IActionResult BlogAdd()//Burada kategorileri ismine göre getirdik ancak id'sine işlem yapıyoz tabloada id var
 
         {
-            CategoryManager cm  = new CategoryManager(new EfCategoryRepository());
+           
             //ctrl+. rendering ile kullan   
             List<SelectListItem> categoryvalues = (from x in cm.GetList()  //categoryleri blog yazarken blogun categorisini belirlemek için çekiiyoruz
                                                   select new SelectListItem
@@ -74,7 +75,7 @@ namespace CoreDemo.Controllers
                                                   ).ToList();
             
             ViewBag.cv =categoryvalues;//categoriyleri blogadd in HttpGet ile sayfa çalışır çalışmaz çekebiliriz.Ve blog yazarken
-                                        //Blogların kategorisini seçmek için burayı kullanabiliriz.
+                                        
             return View();
         }
 
@@ -122,16 +123,35 @@ namespace CoreDemo.Controllers
          * Bu editControllaından oluşturduğumuz view  BlogListByWriter viewinsaki düzenli butonuna tıklandığında çalışır 
          * yani blogu düzenleriz sonra düzenleme işlemi bitince BlogListByWriter viewina bizi geri aktarır.
          */
+
         [HttpGet]
         public IActionResult EditBlog(int id) {
 
             var blogvalue = bm.TGetById(id);
+            //ctrl+. rendering ile kullan   
+            List<SelectListItem> categoryvalues = (from x in cm.GetList()  //categoryleri blog yazarken blogun categorisini belirlemek için çekiiyoruz
+                                                   select new SelectListItem
+                                                   {
+                                                       Text = x.CategoryName, //dropdowndaki gösterelicek categorylerin labeli
+                                                       Value = x.CategoryId.ToString() //buda kod kısmandan işlem yacağaımız ana değeri id üzerinden
+
+
+                                                   }
+
+                                                  ).ToList();
+
+            ViewBag.cv = categoryvalues;//categoriyleri blogadd in HttpGet ile sayfa çalışır çalışmaz çekebiliriz.Ve blog yazarken
             return View(blogvalue);
         }
 
         [HttpPost]
         public IActionResult EditBlog(Blog p)
         {
+            //bu 3 property'i dışarıdan vermek saçma aryıca dto yok güncelleme sıarsında blog'ıd çıkıyor.
+            p.WriterID = 1;
+            p.BlogCreateDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+            p.BlogStatus = true;
+            bm.TUpdate(p);
             return RedirectToAction("BlogListByWriter");
         }
 
