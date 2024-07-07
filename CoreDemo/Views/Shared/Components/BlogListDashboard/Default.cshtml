@@ -1,0 +1,54 @@
+﻿@*User paneli Doshboard(Anasayfa) ındex sayfasında blogları listelemek için kullanılan partial bir componenttirr*@
+@using EntityLayer.Concrete
+@model List<Blog>
+
+<div class="row" >
+    <div class="col-12 grid-margin">
+        <div class="card" style="background-color:#e7ffe8" >
+            <div class="card-body">
+                
+                <h1 class="card-title" style="color:black">Bloglara Gözat</h1>
+                <br />
+                <div class="table-responsive">
+                    <table class="table" style="background-color:white; ">
+                        <thead style="background-color:#48D3C1">
+
+                            <tr style="color:white">
+                                <th>Blog Başlığı</th>
+                                <th>Kategori</th>
+                                <th>Oluşturulma Tarihi</th>
+                                <th>Blog Yazısının Devamı</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach(var item in Model)
+                            {
+                            <tr>
+                                <td>
+									@item.BlogTitle
+                                </td>
+
+                                <td> 
+                                    @item.Category.CategoryName
+                                </td>
+
+                                <td>
+                                        @(((DateTime)item.BlogCreateDate).ToString("dd-MMM-yyyy"))
+                                </td>
+                               
+                                <td>
+										<a href="/Blog/BlogReadAll/@item.BlogID" class="btn btn-outline-secondary">Devamını Oku</a>
+                                
+                                </td>
+                            </tr>
+							}   
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
