@@ -21,7 +21,7 @@ namespace EntityLayer.Concrete
 {
 	public class Blog
 	{
-		[Key]
+        [Key]
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int BlogID { get; set; }
        

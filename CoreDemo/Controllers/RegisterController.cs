@@ -50,7 +50,7 @@ namespace CoreDemo.Controllers
 			{
 				p.WriterStatus = true;
 				p.WriterAbout = "DenemeTest";
-				wm.WriterAdd(p);
+				wm.TAdd(p);
 				return RedirectToAction("Index","Home");
 				//ekleme işleminde sonra gidilecek sayfa 1.parametre=view 2.parametre:controller
 			}
