@@ -29,6 +29,7 @@
   </ItemGroup>
    <ItemGroup>
      <Folder Include="Views\Shared\Components\GetList\" />
+     <Folder Include="wwwroot\WriterImageFiles\" />
    </ItemGroup>
    <ItemGroup>
      <None Include="wwwroot\writer\.DS_Store" />
