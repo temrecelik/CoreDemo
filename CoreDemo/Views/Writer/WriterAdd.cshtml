@@ -1,8 +1,77 @@
-﻿
+﻿@model CoreDemo.Models.AddProfileImage
 @{
     ViewData["Title"] = "WriterAdd";
     Layout = "~/Views/Shared/WriterLayout.cshtml";
 }
+@*enctype klasöre resim kaydetme işlemini yapar*@
+<form class="form-group" method="post" enctype="multipart/form-data">
+    
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Kayıt Ol</h4>
+                <br />
+                <div class="form-group">
 
-<h1>WriterAdd</h1>
+                    @*idyi hidden ile alınca viewde çıkmıyo ancak veritabanında bu id'ye göre yazıyors*@
+                    @Html.HiddenFor(x => x.WriterId, new { @class = "form-control" })
+                </div>
+
+
+                <div class="form-group">
+                    <h2> <label for="exampleInputName1">Ad Soyad</label></h2>
+                    @Html.TextBoxFor(x => x.WriterName, new { @class = "form-control" })
+                </div>
+
+                <br />     <br />
+
+                <div class="form-group">
+                    <h2> <label for="exampleInputEmail3">Mail Adresiniz</label></h2>
+                    @Html.TextBoxFor(x => x.WriterMail, new { @class = "form-control" })
+                </div>
+
+                <br />     <br />
+
+                <div class="form-group">
+                    <h2><label for="exampleInputPassword4">Yeni Şifre</label></h2>
+                    @Html.PasswordFor(x => x.WriterPassword, new { @class = "form-control" })
+                </div>
+
+                  <br />     <br />
+
+                <div class="form-group">
+                <h2>   <label>Fotoğraf Güncelle</label> </h2>
+
+                        <input type="file"  name="WriterImage"/ >
+                </div>
+
+             @*    <div class="form-group">
+                    <h2> <label for="exampleInputEmail3">Fotoğraf Ekle</label></h2>
+                    @Html.TextBoxFor(x => x.WriterImage, new { @class = "form-control" })
+                </div> *@
+
+                <br />     <br />
+
+                <div class="form-group">
+                    <h2>   <label for="exampleTextarea1">Hakkında</label>  </h2>
+                    @Html.TextAreaFor(x => x.WriterAbout, 10, 10, new { @class = "form-control" })
+                </div>
+                <button type="submit" class="btn btn-outline-success mr-2">Kaydet</button>
+                <button class="btn btn-light">İptal Et</button>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+</form>
 

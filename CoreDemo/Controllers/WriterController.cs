@@ -111,7 +111,7 @@ namespace CoreDemo.Controllers
 		public IActionResult WriterAdd(AddProfileImage  p)
 		{
 			Writer w= new Writer();
-			//yazar eklerken bilgisayardan fotoğraf yüklemeye yarar
+			//yazar eklerken bilgisayardan fotoğraf yüklemeye yarar bu fonksiyon parametreden gelen p model klösöründe!
 			if(p.WriterImage != null)
 			{
 				var extension =Path.GetExtension(p.WriterImage.FileName);
@@ -121,6 +121,7 @@ namespace CoreDemo.Controllers
 				p.WriterImage.CopyTo(stream);
 				w.WriterImage = newimagename;
 			}
+			p.WriterStatus = true;
 			w.WriterMail =p.WriterMail;
 			w.WriterName =p.WriterName;	
 			w.WriterPassword =p.WriterPassword;
