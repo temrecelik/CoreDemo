@@ -20,9 +20,10 @@ namespace EntityLayer.Concrete
 
         public bool NatificationStatus {  get; set; }   
 
-        public DateTime NatificationDate { get; set; } 
+        public DateTime NatificationDate { get; set; }
 
-     
+
+        public string NatificationColor { get; set; }
 
 
 

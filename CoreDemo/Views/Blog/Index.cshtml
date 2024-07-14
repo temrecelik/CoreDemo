@@ -22,7 +22,7 @@
 	her veri için birkez çalışır bu da dinamik bir yapının oluşmasını sağlar.
 -->
 
-	@foreach (var item in Model)
+					@foreach (var item in Model)
 					{
 						
 					
@@ -56,7 +56,7 @@
 														<!--geri kalan kısımı alttaki devamnı oku buttonuna kodlanacak-->
 														<!--Ayrıca 130 karakterin içine dahil olduğu son kelimenin tamamıyla biter-->
 						<a href="/Blog/BlogReadAll/@item.BlogID">
-						    <p class="card-text mb-3">@item.BlogContent.Substring(0,item.BlogContent.Substring(0,50).LastIndexOf(""))... </p>
+						    <p class="card-text mb-3">@item.BlogContent.Substring(0,item.BlogContent.Substring(0,30).LastIndexOf(""))... </p>
 						</a>
 
 							<a href="/Blog/BlogReadAll/@item.BlogID" class="btn btn-primary read-m">Devamını Oku</a>
@@ -69,7 +69,7 @@
 
 						</div>
 							<br />
-
+							
 					</div>
 					
 					}

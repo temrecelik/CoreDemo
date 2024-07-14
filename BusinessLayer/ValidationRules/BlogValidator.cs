@@ -23,8 +23,9 @@ namespace BusinessLayer.ValidationRules
             RuleFor(x => x.BlogContent).NotEmpty().WithMessage("Lütfen blog yazısı giriniz.");
             RuleFor(x => x.BlogImage).NotEmpty().WithMessage("Lütfen blog yazınız için uygun bir resim ekleyiniz.");
             RuleFor(x => x.BlogTitle).MaximumLength(100).WithMessage("Lütfen daha kısa bir başlık seçiniz");
+			RuleFor(x => x.BlogContent).MinimumLength(30).WithMessage("Blog yazınız en az 30 karakter içermelidir.");
 
-        }
+		}
             
     }
 }
