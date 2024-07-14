@@ -2,16 +2,16 @@
 using DataAccessLayer.Concrete.EntityFramework;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CoreDemo.ViewComponents.Natification
+namespace CoreDemo.ViewComponents.Writer
 {
-    public class NatificationList : ViewComponent
+    public class WriterNatification :ViewComponent
     {
         NatificationManager nm = new NatificationManager(new EfNatificationRepository());
 
         public IViewComponentResult Invoke()
         {
-
-            return View();
+            var values = nm.GetList();
+            return View(values);
         }
     }
 }

@@ -20,7 +20,7 @@ namespace BusinessLayer.Concrete
 
         public List<Natification> GetList()
         {
-            throw new NotImplementedException();
+           return  _natificationDal.GetListAll();
         }
 
         public void TAdd(Natification t)

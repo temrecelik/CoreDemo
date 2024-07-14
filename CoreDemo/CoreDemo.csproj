@@ -28,6 +28,7 @@
     <ProjectReference Include="..\EntityLayer\EntityLayer.csproj" />
   </ItemGroup>
    <ItemGroup>
+     <Folder Include="ViewComponents\Natification\" />
      <Folder Include="Views\Shared\Components\GetList\" />
      <Folder Include="wwwroot\WriterImageFiles\" />
    </ItemGroup>
