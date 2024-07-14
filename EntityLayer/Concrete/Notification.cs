@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EntityLayer.Concrete
 {
-    public class Natification
+    public class Notification
     {
         [Key]
         public int NatificationId {  get; set; }    

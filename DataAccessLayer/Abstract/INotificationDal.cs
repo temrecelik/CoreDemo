@@ -5,9 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLayer.Abstract
+namespace DataAccessLayer.Abstract
 {
-    public interface INatificationService :IGenericService<Natification>
+    public interface INotificationDal :IGenericDal<Notification>
     {
+
     }
 }

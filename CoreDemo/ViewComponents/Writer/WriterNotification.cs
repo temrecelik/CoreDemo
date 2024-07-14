@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CoreDemo.ViewComponents.Writer
 {
-    public class WriterNatification :ViewComponent
+    public class WriterNotification :ViewComponent
     {
-        NatificationManager nm = new NatificationManager(new EfNatificationRepository());
+        NotificationManager nm = new NotificationManager(new EfNotificationRepository());
 
         public IViewComponentResult Invoke()
         {

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Concrete.EntityFramework
 {
-    public class EfNatificationRepository :GenericRepository<Natification> ,INatificationDal
+    public class EfNotificationRepository :GenericRepository<Notification> ,INotificationDal
     {
     }
 }

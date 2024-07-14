@@ -9,36 +9,36 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Concrete
 {
-    public class NatificationManager : INatificationService
+    public class NotificationManager : INotificationService
     {
-        INatificationDal _natificationDal;
+        INotificationDal _natificationDal;
 
-        public NatificationManager(INatificationDal natificationDal)
+        public NotificationManager(INotificationDal natificationDal)
         {
             _natificationDal = natificationDal;
         }
 
-        public List<Natification> GetList()
+        public List<Notification> GetList()
         {
            return  _natificationDal.GetListAll();
         }
 
-        public void TAdd(Natification t)
+        public void TAdd(Notification t)
         {
             throw new NotImplementedException();
         }
 
-        public void TDelete(Natification t)
+        public void TDelete(Notification t)
         {
             throw new NotImplementedException();
         }
 
-        public Natification TGetById(int id)
+        public Notification TGetById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public void TUpdate(Natification t)
+        public void TUpdate(Notification t)
         {
             throw new NotImplementedException();
         }

@@ -2,7 +2,7 @@
 
 namespace CoreDemo.Controllers
 {
-    public class NatificationController : Controller
+    public class NotificationController : Controller
     {
         public IActionResult Index()
         {
