@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete.EntityFramework;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CoreDemo.Controllers
@@ -6,6 +8,9 @@ namespace CoreDemo.Controllers
     [AllowAnonymous]
     public class NotificationController : Controller
     {
+
+        NotificationManager nm = new NotificationManager(new EfNotificationRepository());
+
         public IActionResult Index()
         {
             return View();
@@ -13,7 +18,8 @@ namespace CoreDemo.Controllers
 
         public IActionResult AllNotification()
         {
-            return View();
+            var values = nm.GetList();
+            return View(values);
         }
     }
 }
