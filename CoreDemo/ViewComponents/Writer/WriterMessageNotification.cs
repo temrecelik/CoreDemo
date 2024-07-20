@@ -14,10 +14,11 @@ namespace CoreDemo.ViewComponents.Writer
 
         public IViewComponentResult Invoke()
         {
-            string p = "ec@gmail.com";
+            string p;
+                p = "ec@gmail.com";
 
             var values = mm.GetInboxListByWriter(p);
-            return View();
+            return View(values);
         }
     }
 }
