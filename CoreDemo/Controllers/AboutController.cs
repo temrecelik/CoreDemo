@@ -1,11 +1,14 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.Concrete.EntityFramework;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CoreDemo.Controllers
 {
+	[AllowAnonymous]
 	public class AboutController : Controller
 	{
+
 		AboutManager am = new AboutManager(new EfAboutRepository());	
 
 		public IActionResult Index()

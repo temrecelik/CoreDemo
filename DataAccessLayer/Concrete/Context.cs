@@ -16,9 +16,26 @@ namespace DataAccessLayer.Concrete
 			optionsBuilder.UseSqlServer("server=DESKTOP-EKSE2T7;database=CoreBlogDb;integrated security=true ;TrustServerCertificate=True");
 		}
 
-		//bağlantı stringinden sonra CoreBlogDb altında aşağıdaki tablolarımız oluşur ve tabloların adı
-		//s takısı ile olur içerikleri yani sutunları entities'den gelir.
-		public DbSet<About> Abouts { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+			modelBuilder.Entity<Message2>()
+				 .HasOne(X => X.SenderUser)
+				 .WithMany(y => y.WriterSender)
+				 .HasForeignKey(z => z.SenderID)
+				 .OnDelete(DeleteBehavior.ClientSetNull);
+
+
+            modelBuilder.Entity<Message2>()
+                 .HasOne(X => X.ReceiverUser)
+                 .WithMany(y => y.WriterReceiver)
+                 .HasForeignKey(z => z.ReceiverID)
+                 .OnDelete(DeleteBehavior.ClientSetNull);
+        }
+
+
+        //bağlantı stringinden sonra CoreBlogDb altında aşağıdaki tablolarımız oluşur ve tabloların adı
+        //s takısı ile olur içerikleri yani sutunları entities'den gelir.
+        public DbSet<About> Abouts { get; set; }
 		public DbSet<Blog> Blogs { get; set; }
 		public DbSet<Category> Categories { get; set; }
 		public DbSet<Comment> Comments { get; set; }
@@ -27,10 +44,10 @@ namespace DataAccessLayer.Concrete
 		public DbSet<NewsLetter> NewsLetters { get; set; }
 		public DbSet<Notification> Notifications { get; set; } 
 		public DbSet<Message> Messages { get; set; }
+        public DbSet<Message2> Message2s { get; set; }
 
 
 
-
-	}
+    }
 
 }
