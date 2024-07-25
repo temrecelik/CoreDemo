@@ -1,0 +1,67 @@
+﻿@using EntityLayer.Concrete
+@model List<Message2>
+@{
+    ViewData["Title"] = "InBox";
+    Layout = "~/Views/Shared/WriterLayout.cshtml";
+}
+
+
+
+<style>
+    table {
+        border-collapse: collapse;
+        background-color: #fff;
+    }
+
+        table tr, table td, table th {
+            border: 1px solid #bbb;
+            padding: 10px 20px;
+        }
+
+        table th {
+            background-color: green;
+            color: #fff;
+            font-weight: 600;
+        }
+</style>
+
+
+
+
+@{
+    ViewData["Title"] = "BlogListByWriter";
+    Layout = "~/Views/Shared/WriterLayout.cshtml";
+}
+
+<h3 style="color:green" font-family="Courier New">Gelen Kutusu</h3>
+
+<br />
+
+
+<table class="table table-bordered text-center ">
+    <tr>
+  
+        <th>Konu</th>
+        <th>Gönderen</th>
+        <th>Tarih</th>
+        <th>Mesajı Aç</th>
+    </tr>
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+     
+            <td>@item.Subject</td>
+            <td>@item.SenderUser.WriterName</td>
+            <td>@(((DateTime)item.MessageDate).ToString("dd-MMM-yyyy"))</td> 
+            <td> <a href="/Message/MessageDetails/@item.MessageID" class="btn btn-outline-warning">Mesajı Aç</a>  </td>
+           
+
+        </tr>
+
+    }
+</table>
+<br />
+<a href="/Blog/EditBlog/" class="btn btn-outline-success">Mesaj Oluştur</a>
+

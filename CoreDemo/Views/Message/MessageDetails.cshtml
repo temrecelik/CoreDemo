@@ -1,0 +1,24 @@
+﻿@model EntityLayer.Concrete.Message2
+
+@{
+    ViewData["Title"] = "MessageDetails";
+    Layout = "~/Views/Shared/WriterLayout.cshtml";
+}
+
+<h3 style="color:green">Mesaj Detayı</h3>
+
+    @Html.Label("Mesaj Başlığı", "Mesajı Başlığı", new { @style = "color: orange;" })
+    @Html.LabelFor(x => x.Subject, new { @class = "form-control" })
+
+    <br />
+
+
+    @Html.Label("Mesaj İçeriği", "Mesaj İçeriği", new { @style = "color: orange;" })
+    @Html.LabelFor(x => x.MessageDetais, new { @class = "form-control" })
+
+
+<br />
+    <button class="btn btn-outline-success">Mesajlara Dön</button>
+
+
+
