@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Concrete;
 using BusinessLayer.ValidationRules;
 using CoreDemo.Models;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.Concrete.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
@@ -23,7 +24,7 @@ Bir yazarın websitesinde olacak nitelikleri
 
 
 namespace CoreDemo.Controllers
-{
+{	
 	/*[Authorize] 2-)buraya yazarsak controllerdeki tüm Actionlara girmek için Authorize gerçekleştirmesi lazım
 	ancak her sayfaya teker teker [Authorize] yazmak yerine program.cs dosyasındaki yazdığımız kod bloğu
 	 [AllowAnonymous] olan sayfalar hariç her sayfayı [Authorize] yapar. */
@@ -34,8 +35,14 @@ namespace CoreDemo.Controllers
 
 		WriterManager wm = new WriterManager(new EfWriterRepository());
 
-		public IActionResult Index()
+        [Authorize]
+        public IActionResult Index()
 		{
+			var usermail = User.Identity.Name;
+			ViewBag.V = usermail;
+			Context c = new Context();
+			var writeName = c.Writers.Where(x => x.WriterMail == usermail).Select(y => y.WriterName).FirstOrDefault();
+			ViewBag.V2 = writeName;
 			return View();
 		}
 

@@ -40,7 +40,7 @@ namespace CoreDemo.Controllers
 				await HttpContext.SignInAsync(principal);      //Authorization bekleyen sayfaları giriş yaptıktan sonra
                                                                 //otomatik olarak [AllowAnonymous] yapmaya yarar
 
-                return RedirectToAction("Index", "Writer"); //Yukardaki tüm işlemlerden sonra otontike olabilirsek
+                return RedirectToAction("Index", "Dashboard"); //Yukardaki tüm işlemlerden sonra otontike olabilirsek
 															//bizi ilk olarak /Writer/Index sayfasına atayacaktır.
 			}
 			else
