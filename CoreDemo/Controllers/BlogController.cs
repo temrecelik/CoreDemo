@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using BusinessLayer.ValidationRules;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.Concrete.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
@@ -8,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CoreDemo.Controllers
-{   [AllowAnonymous] //kullanıcı otantike olmadan blog sayfasını görebilir.
+{   /*[AllowAnonymous]*/ //kullanıcı otantike olmadan blog sayfasını görebilir.
 
     public class BlogController : Controller
     {
@@ -16,7 +17,7 @@ namespace CoreDemo.Controllers
         //Blog manager'deki kodları kullanabiliriz.
         BlogManager bm = new BlogManager(new EfBlogRepository());
         CategoryManager cm = new CategoryManager(new EfCategoryRepository());
-
+        [Authorize]
         public IActionResult Index()
         {
             //values degiskeni ile blog tablasuna artık view yani
@@ -53,7 +54,10 @@ namespace CoreDemo.Controllers
 
         public IActionResult BlogListByWriter()
         {
-            var values = bm.GetListWithCategoryByWriterBm(1);
+            var UserMail = User.Identity.Name;
+            Context c = new Context();
+            var UserId = c.Writers.Where(x => x.WriterMail == UserMail).Select(y => y.WriterId).FirstOrDefault();
+            var values = bm.GetListWithCategoryByWriterBm(UserId);
             return View(values);
         }
 

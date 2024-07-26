@@ -79,7 +79,12 @@ namespace CoreDemo.Controllers
 		[HttpGet]
 		public IActionResult WriterEditProfile()
 		{
-			var writervalues = wm.TGetById(1);
+            var UserMail = User.Identity.Name;
+            Context c = new Context();
+			var UserId = c.Writers.Where(x => x.WriterMail == UserMail).Select(y => y.WriterId).FirstOrDefault();
+
+
+            var writervalues = wm.TGetById(UserId);
 			return View(writervalues);
 		}
 
