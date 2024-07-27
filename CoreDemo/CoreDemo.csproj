@@ -28,6 +28,8 @@
     <ProjectReference Include="..\EntityLayer\EntityLayer.csproj" />
   </ItemGroup>
    <ItemGroup>
+     <Folder Include="Areas\Admin\Data\" />
+     <Folder Include="Areas\Admin\Models\" />
      <Folder Include="ViewComponents\Natification\" />
      <Folder Include="Views\Shared\Components\GetList\" />
      <Folder Include="wwwroot\WriterImageFiles\" />

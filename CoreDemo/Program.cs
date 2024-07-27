@@ -67,8 +67,21 @@ app.UseRouting();
 
 app.UseAuthorization();	
 
+
+
 app.MapControllerRoute(
+
 	name: "default",
 	pattern: "{controller=Blog}/{action=Index}/{id?}");
+
+
+//areas için oradaki controllerý ve view'ý tanýyor
+app.MapControllerRoute(
+    name: "areas",
+         pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+    );
+
+
+
 
 app.Run();
