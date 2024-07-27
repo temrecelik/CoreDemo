@@ -69,19 +69,27 @@ app.UseAuthorization();
 
 
 
-app.MapControllerRoute(
+//app.MapControllerRoute(
 
-	name: "default",
-	pattern: "{controller=Blog}/{action=Index}/{id?}");
-
-
-//areas için oradaki controllerý ve view'ý tanýyor
-app.MapControllerRoute(
-    name: "areas",
-         pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
-    );
+//	name: "default",
+//	pattern: "{controller=Blog}/{action=Index}/{id?}");
 
 
+////areas için oradaki controllerý ve view'ý tanýyor
+//app.MapControllerRoute(
+//    name: "areas",
+//         pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+//    );
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
+        name: "areas",
+        pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+    endpoints.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Blog}/{action=Index}/{id?}");
+});
 
 
 app.Run();

@@ -1,6 +1,8 @@
-﻿@using EntityLayer.Concrete
-@model List<Category>
- 
+﻿@* @using EntityLayer.Concrete pagedlist kullandığımız için Entity'yi IPagedList ile vericez*@
+@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+@* @model List<Category>  pagedlist kullandığımız  için model böyle kullanılmayacak*@ 
+@model IPagedList<EntityLayer.Concrete.Category>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
@@ -29,3 +31,8 @@
     </tr>
 }
 </table>
+
+<br />
+<a href="#" class="btn btn-primary">Kategori Ekle</a>
+<br /><br />
+@Html.PagedListPager((IPagedList)Model,page => Url.Action("Index",new {page}))
